@@ -1,4 +1,4 @@
-package com.artist;
+package com.artist.model;
 
 public class ArtistInfo {
 
