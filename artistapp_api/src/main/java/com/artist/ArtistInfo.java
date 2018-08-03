@@ -1,10 +1,16 @@
 package com.artist;
 
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.context.annotation.Configuration;
+
+@ConfigurationProperties(prefix = "artist")
+@Configuration("artistProperties")
 public class ArtistInfo {
 
     private String fName;
     private String lName;
     private String geoLocation;
+    private String apiKey;
     
 	public ArtistInfo(String fName, String lName) {
 		super();
@@ -30,5 +36,20 @@ public class ArtistInfo {
 		this.geoLocation = geoLocation;
 	}
     
+	public String getApiKey() {
+		return apiKey;
+	}
+	public void setApiKey(String apiKey) {
+		this.apiKey = apiKey;
+	}
     
+	@Autowired
+	private Artist artistProperties;
+
+	public void method() {
+
+	   apiKey = artistProperties.getApiKey();
+	  
+
+	}
 }
